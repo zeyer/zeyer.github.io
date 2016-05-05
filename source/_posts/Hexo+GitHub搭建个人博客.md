@@ -17,6 +17,8 @@ tags: Hexo
 
 http://www.jianshu.com/p/985d07d88ef4
 
+[Hexo多终端同步](http://crazymilk.github.io/2015/12/28/GitHub-Pages-Hexo搭建博客/#more)
+
 ### 申请Github账号，并开启Github Page
 
 github账号申请：<https://github.com/>
