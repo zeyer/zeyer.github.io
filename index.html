@@ -239,8 +239,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/05/05/hello-world/" itemprop="url">
-                  Hello World
+                <a class="post-title-link" href="/2016/05/05/2016-05-02--Hexo-博客多终端同步/" itemprop="url">
+                  Hexo 博客多终端同步
                 </a>
               
             
@@ -253,11 +253,30 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-05T15:33:06+08:00" content="2016-05-05">
+            <time itemprop="dateCreated" datetime="2016-05-05T00:00:00+08:00" content="2016-05-05">
               2016-05-05
             </time>
           </span>
 
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/教程/" itemprop="url" rel="index">
+                    <span itemprop="name">教程</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
@@ -283,15 +302,69 @@
       
         
           
-            <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+            <h2 id="教程说明"><a href="#教程说明" class="headerlink" title="教程说明"></a>教程说明</h2><p>本教程利用Github上的分支来实现Hexo博客在多个终端同步。教程主要针对两种情况进行说明：</p>
+<ol>
+<li>在博客搭建时，已创建两个分支，一个是默认分支master，另一个是hexo分支，用于同步markdown等源文件。</li>
+<li>博客已搭建完成，但只有默认分支master，无源文件备份分支。但有本地博客文件夹。</li>
+</ol>
+<p>注意：本教程要求本地已经安装Node和Git。</p>
+<h3 id="一、博客搭建时"><a href="#一、博客搭建时" class="headerlink" title="一、博客搭建时"></a>一、博客搭建时</h3><ol>
+<li><p>在Github中创建远程仓库，zeyer.github.io;</p>
+</li>
+<li><p>创建两个分支： master 和 hexo;</p>
+</li>
+<li><p>设置hexo为默认分支，具体操作如下：</p>
+<p> ①点击项目设置<code>Settings</code>  </p>
+<p><img src="http://o6oq2pwnx.bkt.clouddn.com/20160505140710.jpg" alt="20160505140710"></p>
+<p>②点击<code>Branches &gt; Default branch</code> ，选择 <code>hexo</code> 为默认branch即可。</p>
+<p><img src="http://o6oq2pwnx.bkt.clouddn.com/20160505141333.jpg" alt="20160505141333"></p>
+</li>
+<li><p>使用git clone命令将远程的仓库拷贝到本地</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">### 将远程仓库拷贝到本地blog文件夹，该命令会自动创建blog文件夹</span></span><br><span class="line">git clone git@github.com:zeyer/zeyer.github.io.git blog</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>定位到本地<strong>blog文件夹</strong>，通过Git Bash命令依次执行</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">### 安装hexo</span></span><br><span class="line">npm install hexo</span><br><span class="line"></span><br><span class="line"><span class="section">### hexo初始化(只有在新建博客的时候才需要hexo init命令)</span></span><br><span class="line"><span class="section">### 若远程仓库已有博客数据，在一台新电脑上同步已有的博客数据，无需hexo init 命令</span></span><br><span class="line">hexo init</span><br><span class="line"></span><br><span class="line"><span class="section">### npm安装</span></span><br><span class="line">npm install</span><br><span class="line"></span><br><span class="line"><span class="section">### 安装hexo git</span></span><br><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改<code>_config.yml</code> 中的deploy参数，分支应为master</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: git@github.com:zeyer/zeyer.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>替换默认主题为next，并修改next主题中的<code>_config.yml</code> ,关于<a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">next主题</a></p>
+<p><em>若使用的为第三方主题，此步骤一定不可省，因为第三方主题clone容易出现问题</em></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>依次执行git add, commit, push 等命令，提交网站相关命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line"></span><br><span class="line">git commit -m &quot;...&quot;</span><br><span class="line"></span><br><span class="line">git push origin hexo</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>hexo部署到Github中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line"></span><br><span class="line">hexo generate</span><br><span class="line"></span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
+<p>这样一来，在GitHub上的zeyer.github.io仓库就有两个分支，一个hexo分支用来存放网站的原始文件，一个master分支用来存放生成的静态网页。</p>
+</li>
+</ol>
+<h3 id="二、本地博客搭建完成，远程只有默认分支master"><a href="#二、本地博客搭建完成，远程只有默认分支master" class="headerlink" title="二、本地博客搭建完成，远程只有默认分支master"></a>二、本地博客搭建完成，远程只有默认分支master</h3><ol>
+<li><p>定位到本地文件夹blog下，用Git Bash新建分支hexo，并切换到该分支</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 创建本地分支hexo</span><br><span class="line">git branch hexo</span><br><span class="line"></span><br><span class="line"># 切换到新分支hexo</span><br><span class="line">git checkout hexo</span><br></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><p>创建远程分支（本地分支push到远程）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin hexo</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>这样就完成了远程分支的创建，最后再将远程<strong>hexo分支设置为默认分支</strong>即可，设置方法见上文</p>
+</li>
+</ol>
+<h3 id="三、日常博客更新修改"><a href="#三、日常博客更新修改" class="headerlink" title="三、日常博客更新修改"></a>三、日常博客更新修改</h3><ol>
+<li><p>若博客在多终端更新，则每次操作前，需先pull远程仓库中的资料</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origin hexo</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>依次执行git add .、git commit -m “…”、git push origin hexo指令将改动推送到GitHub（此时当前分支应为hexo）；</p>
+</li>
+<li><p>然后才执行hexo generate -d发布网站到master分支上。</p>
+</li>
+</ol>
+<h3 id="四、几点注意："><a href="#四、几点注意：" class="headerlink" title="四、几点注意："></a>四、几点注意：</h3><ul>
+<li>若一切从无到有，在建本地博客是需要hexo init , 若本地数据丢失，只是从远程拷贝数据，则无需使用hexo init。</li>
+<li>使用第三方主题，最好重新下载，git clone会有问题</li>
+<li>每次更新博客时，新提交源文件，git add 等操作，再使用部署命令 hexo g -d</li>
+</ul>
 
           
         
@@ -341,139 +414,7 @@
             
               
                 
-                <a class="post-title-link" href="/2016/05/05/Markdown-For-Typora/" itemprop="url">
-                  Markdown for Typora
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-05T15:33:06+08:00" content="2016-05-05">
-              2016-05-05
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p><strong>Markdown</strong>是由<a href="http://daringfireball.net/" target="_blank" rel="external">Daring Fireball</a>的创造的一种语法，它原始的指导手册见<a href="http://daringfireball.net/projects/markdown/syntax" target="_blank" rel="external">此处</a>.但对于不同的语法解析器和编辑器而言，它的语法存在差异。<strong>Typora</strong>采用了Github Flavored Markdown(GFM),但仍然和其他编辑器有所不同。</p>
-<h2 id="块元素"><a href="#块元素" class="headerlink" title="块元素"></a>块元素</h2><h3 id="段落和空行"><a href="#段落和空行" class="headerlink" title="段落和空行"></a>段落和空行</h3><p>段落是一行或多行连续的文本构成的。在markdown源代码中，段落被更多空行分隔。而在<strong>Typora</strong>中，只需要点击<code>回车</code>按钮就可以创建一个新的段落。而<code>&lt;/br&gt;</code>是不被支持的。</p>
-<h3 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h3><p>标题一共有1-6六个等级，用<code>#</code>符号的个数来表示标题的级别，1个<code>#</code>表示一级标题，2个<code>#</code>表示二级标题，以此类推，6个<code>#</code>表示六级标题。例子如下：</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># 这是一级标题</span></span><br><span class="line"></span><br><span class="line"><span class="section">## 这是二级标题</span></span><br><span class="line"></span><br><span class="line"><span class="section">###### 这是六级标题</span></span><br></pre></td></tr></table></figure>
-<p>在Typora中，<code>#</code>后直接输入内容，按 <code>回车</code> 键创建一个标题。</p>
-<h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><p>Markdown文档中用 <code>&gt;</code> 来表示引用块，用法示例：</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="quote">&gt; 这是一个两段文字的引用。这是第一段</span></span><br><span class="line"><span class="quote">&gt;</span><br><span class="line">&gt; 这是第二段文字。。。。。。</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="quote">&gt; 这是另一个引用，这个应用只有一段文字。两段引用之间用三个空行分开。</span></span><br></pre></td></tr></table></figure>
-<p>在Typora中，直接在 <code>&gt;</code> 后输入应用内容，就可以生成引用。</p>
-<p>Typora会自动为你插入换行符。同时块引用之中可以内嵌子引用。</p>
-<h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><p>输入<code>* 列表内容</code> 将会生成一个无序列表，其中<code>*</code> 可以被 <code>+</code> 或者<code>-</code> 代替。</p>
-<p>输入  <code>1. list item 1</code> 将会创建一个有序列表，两种创建方法的markdown源代码如下：</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">## un-ordered list</span></span><br><span class="line"><span class="bullet">*   </span>Red</span><br><span class="line"><span class="bullet">*   </span>Green</span><br><span class="line"><span class="bullet">*   </span>Blue</span><br><span class="line"></span><br><span class="line"><span class="section">## ordered list</span></span><br><span class="line"><span class="bullet">1. </span>Red</span><br><span class="line"><span class="bullet">2. </span>Green</span><br><span class="line"><span class="bullet">3. </span>Blue</span><br></pre></td></tr></table></figure>
-<h3 id="任务列表"><a href="#任务列表" class="headerlink" title="任务列表"></a>任务列表</h3><p>任务列表是被标记已完成或者未完成的列表项，通常用[ ] 或者 [ x] 来表示。用例如下：</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">- </span>[ ] 一个任务列表</span><br><span class="line"><span class="bullet">- </span>[ ] 列表语法</span><br><span class="line"><span class="bullet">- </span>[ ] 未完成</span><br><span class="line"><span class="bullet">- </span>[X] 已完成</span><br></pre></td></tr></table></figure>
-<p>你可以通过点击列表前的复选框来改变完成状态或者未完成状态。</p>
-<h3 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h3><p>Typora只支持Github Flavored Markdown格式的fences.markdown中的原生代码块是不被支持的。</p>
-<p>用代码块是很容易的，输入 ``` 然后点击<code>回车</code> 。添加一种语言标记在``` 后面，然后将会使用该种语言的语法高亮。</p>
-<h3 id="数学公式"><a href="#数学公式" class="headerlink" title="数学公式"></a>数学公式</h3><p>你可以使用<strong>MathJax</strong>提交<em>LaTex</em> 数学表达。</p>
-<p>输入 $$，然后点击<code>回车</code>键，将会触发一个输入区域，该输入区域支持<em>Tex/LaTex</em>，直接输入公式代码即可。以下是使用实例：</p>
-<p>在markdown源文件中，数学公式块是被<code>$$</code>所包含的：<br>$$<br>\mathbf{V}_1 \times \mathbf{V}_2 =  \begin{vmatrix}<br>\mathbf{i} &amp; \mathbf{j} &amp; \mathbf{k} \\<br>\frac{\partial X}{\partial u} &amp;  \frac{\partial Y}{\partial u} &amp; 0 \\<br>\frac{\partial X}{\partial v} &amp;  \frac{\partial Y}{\partial v} &amp; 0 \<br>\end{vmatrix}<br>$$</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$$</span><br><span class="line">\mathbf&#123;V&#125;<span class="emphasis">_1 \times \mathbf&#123;V&#125;_</span>2 =  \begin&#123;vmatrix&#125; </span><br><span class="line">\mathbf&#123;i&#125; &amp; \mathbf&#123;j&#125; &amp; \mathbf&#123;k&#125; \\\</span><br><span class="line">\frac&#123;\partial X&#125;&#123;\partial u&#125; &amp;  \frac&#123;\partial Y&#125;&#123;\partial u&#125; &amp; 0 \\\</span><br><span class="line">\frac&#123;\partial X&#125;&#123;\partial v&#125; &amp;  \frac&#123;\partial Y&#125;&#123;\partial v&#125; &amp; 0 \\</span><br><span class="line">\end&#123;vmatrix&#125;</span><br><span class="line">$$</span><br></pre></td></tr></table></figure>
-<p>但是在Hexo博客中，由于未原生支持MathJax，虽然可以用<a href="https://unnamed42.github.io/2015-12-02-Hexo-MathJax%E6%8F%92%E4%BB%B6.html#介绍" target="_blank" rel="external">Hexo MathJax插件</a>解决，但是，LaTeX包含大量的像\这样的特殊字符，这就给手动转义带来了极大的不便（如上述代码块中第3行和第四行末尾）。这种情况下，你可以使用 hexo-math 的标签来让你解脱。只需要将<code>$$</code>换成如下的hexo math标签即可。tag具体用法如下：</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;% math %&#125;</span><br><span class="line">\mathbf&#123;V&#125;<span class="emphasis">_1 \times \mathbf&#123;V&#125;_</span>2 =  \begin&#123;vmatrix&#125; </span><br><span class="line">\mathbf&#123;i&#125; &amp; \mathbf&#123;j&#125; &amp; \mathbf&#123;k&#125; \\</span><br><span class="line">\frac&#123;\partial X&#125;&#123;\partial u&#125; &amp;  \frac&#123;\partial Y&#125;&#123;\partial u&#125; &amp; 0 \\</span><br><span class="line">\frac&#123;\partial X&#125;&#123;\partial v&#125; &amp;  \frac&#123;\partial Y&#125;&#123;\partial v&#125; &amp; 0 \\</span><br><span class="line">\end&#123;vmatrix&#125;</span><br><span class="line">&#123;% endmath %&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h3><p>输入<code>| 标题1  | 标题2 |</code>  然后点击 <code>回车</code> 键就可以创建一个包含两列的表格。</p>
-<p>在表格被创建后，可以看到表格上有工具栏，可以利用工具栏重新设置行列数、对齐方式或者删除表格</p>
-<p>下面这些操作可以跳过，因为通过Typora自动生成的表格包括了这些设置的可视化操作。</p>
-<p>在markdown源代码中，表格是这样的</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">| First Header  | Second Header |</span><br><span class="line">| ------------- | ------------- |</span><br><span class="line">| Content Cell  | Content Cell  |</span><br><span class="line">| Content Cell  | Content Cell  |</span><br></pre></td></tr></table></figure>
-<p>同时，对于表格的内容可以设置链接，加粗，斜体或者删除线等等。</p>
-<p>最后，通过在标题行使用标点符号<code>:</code>  ，可以设置对齐方式</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">| 左对齐  | 居中 | 右对齐 |</span><br><span class="line">| :------------ |:---------------:| -----:|</span><br><span class="line">| col 3 is      | some wordy text | $1600 |</span><br><span class="line">| col 2 is      | centered        |   $12 |</span><br><span class="line">| zebra stripes | are neat        |    $1 |</span><br></pre></td></tr></table></figure>
-<p>标点符号<code>:</code>在最左边表示左对齐，标点符号<code>:</code>在最右边表示右对齐，左右两边都有标点符号<code>:</code>表示居中。</p>
-<h3 id="脚注"><a href="#脚注" class="headerlink" title="脚注"></a>脚注</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">你可以用这样的方式创建一个脚注 [^脚注]。</span><br><span class="line">[<span class="symbol">^脚注</span><span class="link">]: 这是一个脚注内容。</span></span><br></pre></td></tr></table></figure>
-<p>最终产生的效果如下：</p>
-<p>你可以用这样的方式创建一个脚注 <a href="这是一个脚注。">^脚注</a>。</p>
-<p>鼠标悬浮在<code>脚注</code>两个字上时，会显示具体内容。</p>
-<h3 id="水平线"><a href="#水平线" class="headerlink" title="水平线"></a>水平线</h3><p>在一个空行中输入<code>***</code>或者 <code>---</code> ，然后点击<code>回车</code>将会生成一条水平线。</p>
-<hr>
-<h3 id="YAML-Front-Matters"><a href="#YAML-Front-Matters" class="headerlink" title="YAML Front Matters"></a>YAML Front Matters</h3><p>Typora支持 <a href="http://jekyllrb.com/docs/frontmatter/" target="_blank" rel="external">YAML Front Matters</a> 。在文章的顶部输入<code>---</code> 然后按下<code>回车</code> 键，将会创建一个。 </p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/05/05/Hexo+GitHub搭建个人博客/" itemprop="url">
+                <a class="post-title-link" href="/2016/05/04/Hexo+GitHub搭建个人博客/" itemprop="url">
                   Hexo+GitHub搭建个人博客
                 </a>
               
@@ -487,8 +428,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-05T15:33:06+08:00" content="2016-05-05">
-              2016-05-05
+            <time itemprop="dateCreated" datetime="2016-05-04T00:00:00+08:00" content="2016-05-04">
+              2016-05-04
             </time>
           </span>
 
@@ -651,8 +592,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/05/02/2016-05-02--Hexo-博客多终端同步/" itemprop="url">
-                  Hexo 博客多终端同步
+                <a class="post-title-link" href="/2016/05/03/Markdown-For-Typora/" itemprop="url">
+                  Markdown for Typora
                 </a>
               
             
@@ -665,30 +606,11 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-02T00:00:00+08:00" content="2016-05-02">
-              2016-05-02
+            <time itemprop="dateCreated" datetime="2016-05-03T00:00:00+08:00" content="2016-05-03">
+              2016-05-03
             </time>
           </span>
 
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/教程/" itemprop="url" rel="index">
-                    <span itemprop="name">教程</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
           
 
           
@@ -714,69 +636,147 @@
       
         
           
-            <h2 id="教程说明"><a href="#教程说明" class="headerlink" title="教程说明"></a>教程说明</h2><p>本教程利用Github上的分支来实现Hexo博客在多个终端同步。教程主要针对两种情况进行说明：</p>
-<ol>
-<li>在博客搭建时，已创建两个分支，一个是默认分支master，另一个是hexo分支，用于同步markdown等源文件。</li>
-<li>博客已搭建完成，但只有默认分支master，无源文件备份分支。但有本地博客文件夹。</li>
-</ol>
-<p>注意：本教程要求本地已经安装Node和Git。</p>
-<h4 id="一、博客搭建时"><a href="#一、博客搭建时" class="headerlink" title="一、博客搭建时"></a>一、博客搭建时</h4><ol>
-<li><p>在Github中创建远程仓库，zeyer.github.io;</p>
-</li>
-<li><p>创建两个分支： master 和 hexo;</p>
-</li>
-<li><p>设置hexo为默认分支，具体操作如下：</p>
-<p> ①点击项目设置<code>Settings</code>  </p>
-<p><img src="http://o6oq2pwnx.bkt.clouddn.com/20160505140710.jpg" alt="20160505140710"></p>
-<p>②点击<code>Branches &gt; Default branch</code> ，选择 <code>hexo</code> 为默认branch即可。</p>
-<p><img src="http://o6oq2pwnx.bkt.clouddn.com/20160505141333.jpg" alt="20160505141333"></p>
-</li>
-<li><p>使用git clone命令将远程的仓库拷贝到本地</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">### 将远程仓库拷贝到本地blog文件夹，该命令会自动创建blog文件夹</span></span><br><span class="line">git clone git@github.com:zeyer/zeyer.github.io.git blog</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>定位到本地<strong>blog文件夹</strong>，通过Git Bash命令依次执行</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">### 安装hexo</span></span><br><span class="line">npm install hexo</span><br><span class="line"></span><br><span class="line"><span class="section">### hexo初始化(只有在新建博客的时候才需要hexo init命令)</span></span><br><span class="line"><span class="section">### 若远程仓库已有博客数据，在一台新电脑上同步已有的博客数据，无需hexo init 命令</span></span><br><span class="line">hexo init</span><br><span class="line"></span><br><span class="line"><span class="section">### npm安装</span></span><br><span class="line">npm install</span><br><span class="line"></span><br><span class="line"><span class="section">### 安装hexo git</span></span><br><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>修改<code>_config.yml</code> 中的deploy参数，分支应为master</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: git@github.com:zeyer/zeyer.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>替换默认主题为next，并修改next主题中的<code>_config.yml</code> ,关于<a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">next主题</a></p>
-<p><em>若使用的为第三方主题，此步骤一定不可省，因为第三方主题clone容易出现问题</em></p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>依次执行git add, commit, push 等命令，提交网站相关命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line"></span><br><span class="line">git commit -m &quot;...&quot;</span><br><span class="line"></span><br><span class="line">git push origin hexo</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>hexo部署到Github中</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line"></span><br><span class="line">hexo generate</span><br><span class="line"></span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
-<p>这样一来，在GitHub上的zeyer.github.io仓库就有两个分支，一个hexo分支用来存放网站的原始文件，一个master分支用来存放生成的静态网页。</p>
-</li>
-</ol>
-<h4 id="二、本地博客搭建完成，远程只有默认分支master"><a href="#二、本地博客搭建完成，远程只有默认分支master" class="headerlink" title="二、本地博客搭建完成，远程只有默认分支master"></a>二、本地博客搭建完成，远程只有默认分支master</h4><ol>
-<li><p>定位到本地文件夹blog下，用Git Bash新建分支hexo，并切换到该分支</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 创建本地分支hexo</span><br><span class="line">git branch hexo</span><br><span class="line"></span><br><span class="line"># 切换到新分支hexo</span><br><span class="line">git checkout hexo</span><br></pre></td></tr></table></figure>
-<p>​</p>
-</li>
-<li><p>创建远程分支（本地分支push到远程）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin hexo</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>这样就完成了远程分支的创建，最后再将远程<strong>hexo分支设置为默认分支</strong>即可，设置方法见上文</p>
-</li>
-</ol>
-<h3 id="三、日常博客更新修改"><a href="#三、日常博客更新修改" class="headerlink" title="三、日常博客更新修改"></a>三、日常博客更新修改</h3><ol>
-<li><p>若博客在多终端更新，则每次操作前，需先pull远程仓库中的资料</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origin hexo</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>依次执行git add .、git commit -m “…”、git push origin hexo指令将改动推送到GitHub（此时当前分支应为hexo）；</p>
-</li>
-<li><p>然后才执行hexo generate -d发布网站到master分支上。</p>
-</li>
-</ol>
-<h3 id="四、几点注意："><a href="#四、几点注意：" class="headerlink" title="四、几点注意："></a>四、几点注意：</h3><ul>
-<li>若一切从无到有，在建本地博客是需要hexo init , 若本地数据丢失，只是从远程拷贝数据，则无需使用hexo init。</li>
-<li>使用第三方主题，最好重新下载，git clone会有问题</li>
-<li>每次更新博客时，新提交源文件，git add 等操作，再使用部署命令 hexo g -d</li>
-</ul>
+            <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p><strong>Markdown</strong>是由<a href="http://daringfireball.net/" target="_blank" rel="external">Daring Fireball</a>的创造的一种语法，它原始的指导手册见<a href="http://daringfireball.net/projects/markdown/syntax" target="_blank" rel="external">此处</a>.但对于不同的语法解析器和编辑器而言，它的语法存在差异。<strong>Typora</strong>采用了Github Flavored Markdown(GFM),但仍然和其他编辑器有所不同。</p>
+<h2 id="块元素"><a href="#块元素" class="headerlink" title="块元素"></a>块元素</h2><h3 id="段落和空行"><a href="#段落和空行" class="headerlink" title="段落和空行"></a>段落和空行</h3><p>段落是一行或多行连续的文本构成的。在markdown源代码中，段落被更多空行分隔。而在<strong>Typora</strong>中，只需要点击<code>回车</code>按钮就可以创建一个新的段落。而<code>&lt;/br&gt;</code>是不被支持的。</p>
+<h3 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h3><p>标题一共有1-6六个等级，用<code>#</code>符号的个数来表示标题的级别，1个<code>#</code>表示一级标题，2个<code>#</code>表示二级标题，以此类推，6个<code>#</code>表示六级标题。例子如下：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># 这是一级标题</span></span><br><span class="line"></span><br><span class="line"><span class="section">## 这是二级标题</span></span><br><span class="line"></span><br><span class="line"><span class="section">###### 这是六级标题</span></span><br></pre></td></tr></table></figure>
+<p>在Typora中，<code>#</code>后直接输入内容，按 <code>回车</code> 键创建一个标题。</p>
+<h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><p>Markdown文档中用 <code>&gt;</code> 来表示引用块，用法示例：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="quote">&gt; 这是一个两段文字的引用。这是第一段</span></span><br><span class="line"><span class="quote">&gt;</span><br><span class="line">&gt; 这是第二段文字。。。。。。</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="quote">&gt; 这是另一个引用，这个应用只有一段文字。两段引用之间用三个空行分开。</span></span><br></pre></td></tr></table></figure>
+<p>在Typora中，直接在 <code>&gt;</code> 后输入应用内容，就可以生成引用。</p>
+<p>Typora会自动为你插入换行符。同时块引用之中可以内嵌子引用。</p>
+<h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><p>输入<code>* 列表内容</code> 将会生成一个无序列表，其中<code>*</code> 可以被 <code>+</code> 或者<code>-</code> 代替。</p>
+<p>输入  <code>1. list item 1</code> 将会创建一个有序列表，两种创建方法的markdown源代码如下：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">## un-ordered list</span></span><br><span class="line"><span class="bullet">*   </span>Red</span><br><span class="line"><span class="bullet">*   </span>Green</span><br><span class="line"><span class="bullet">*   </span>Blue</span><br><span class="line"></span><br><span class="line"><span class="section">## ordered list</span></span><br><span class="line"><span class="bullet">1. </span>Red</span><br><span class="line"><span class="bullet">2. </span>Green</span><br><span class="line"><span class="bullet">3. </span>Blue</span><br></pre></td></tr></table></figure>
+<h3 id="任务列表"><a href="#任务列表" class="headerlink" title="任务列表"></a>任务列表</h3><p>任务列表是被标记已完成或者未完成的列表项，通常用[ ] 或者 [ x] 来表示。用例如下：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">- </span>[ ] 一个任务列表</span><br><span class="line"><span class="bullet">- </span>[ ] 列表语法</span><br><span class="line"><span class="bullet">- </span>[ ] 未完成</span><br><span class="line"><span class="bullet">- </span>[X] 已完成</span><br></pre></td></tr></table></figure>
+<p>你可以通过点击列表前的复选框来改变完成状态或者未完成状态。</p>
+<h3 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h3><p>Typora只支持Github Flavored Markdown格式的fences.markdown中的原生代码块是不被支持的。</p>
+<p>用代码块是很容易的，输入 ``` 然后点击<code>回车</code> 。添加一种语言标记在``` 后面，然后将会使用该种语言的语法高亮。</p>
+<h3 id="数学公式"><a href="#数学公式" class="headerlink" title="数学公式"></a>数学公式</h3><p>你可以使用<strong>MathJax</strong>提交<em>LaTex</em> 数学表达。</p>
+<p>输入 $$，然后点击<code>回车</code>键，将会触发一个输入区域，该输入区域支持<em>Tex/LaTex</em>，直接输入公式代码即可。以下是使用实例：</p>
+<p>在markdown源文件中，数学公式块是被<code>$$</code>所包含的：<br>$$<br>\mathbf{V}_1 \times \mathbf{V}_2 =  \begin{vmatrix}<br>\mathbf{i} &amp; \mathbf{j} &amp; \mathbf{k} \\<br>\frac{\partial X}{\partial u} &amp;  \frac{\partial Y}{\partial u} &amp; 0 \\<br>\frac{\partial X}{\partial v} &amp;  \frac{\partial Y}{\partial v} &amp; 0 \<br>\end{vmatrix}<br>$$</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$$</span><br><span class="line">\mathbf&#123;V&#125;<span class="emphasis">_1 \times \mathbf&#123;V&#125;_</span>2 =  \begin&#123;vmatrix&#125; </span><br><span class="line">\mathbf&#123;i&#125; &amp; \mathbf&#123;j&#125; &amp; \mathbf&#123;k&#125; \\\</span><br><span class="line">\frac&#123;\partial X&#125;&#123;\partial u&#125; &amp;  \frac&#123;\partial Y&#125;&#123;\partial u&#125; &amp; 0 \\\</span><br><span class="line">\frac&#123;\partial X&#125;&#123;\partial v&#125; &amp;  \frac&#123;\partial Y&#125;&#123;\partial v&#125; &amp; 0 \\</span><br><span class="line">\end&#123;vmatrix&#125;</span><br><span class="line">$$</span><br></pre></td></tr></table></figure>
+<p>但是在Hexo博客中，由于未原生支持MathJax，虽然可以用<a href="https://unnamed42.github.io/2015-12-02-Hexo-MathJax%E6%8F%92%E4%BB%B6.html#介绍" target="_blank" rel="external">Hexo MathJax插件</a>解决，但是，LaTeX包含大量的像\这样的特殊字符，这就给手动转义带来了极大的不便（如上述代码块中第3行和第四行末尾）。这种情况下，你可以使用 hexo-math 的标签来让你解脱。只需要将<code>$$</code>换成如下的hexo math标签即可。tag具体用法如下：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;% math %&#125;</span><br><span class="line">\mathbf&#123;V&#125;<span class="emphasis">_1 \times \mathbf&#123;V&#125;_</span>2 =  \begin&#123;vmatrix&#125; </span><br><span class="line">\mathbf&#123;i&#125; &amp; \mathbf&#123;j&#125; &amp; \mathbf&#123;k&#125; \\</span><br><span class="line">\frac&#123;\partial X&#125;&#123;\partial u&#125; &amp;  \frac&#123;\partial Y&#125;&#123;\partial u&#125; &amp; 0 \\</span><br><span class="line">\frac&#123;\partial X&#125;&#123;\partial v&#125; &amp;  \frac&#123;\partial Y&#125;&#123;\partial v&#125; &amp; 0 \\</span><br><span class="line">\end&#123;vmatrix&#125;</span><br><span class="line">&#123;% endmath %&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h3><p>输入<code>| 标题1  | 标题2 |</code>  然后点击 <code>回车</code> 键就可以创建一个包含两列的表格。</p>
+<p>在表格被创建后，可以看到表格上有工具栏，可以利用工具栏重新设置行列数、对齐方式或者删除表格</p>
+<p>下面这些操作可以跳过，因为通过Typora自动生成的表格包括了这些设置的可视化操作。</p>
+<p>在markdown源代码中，表格是这样的</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">| First Header  | Second Header |</span><br><span class="line">| ------------- | ------------- |</span><br><span class="line">| Content Cell  | Content Cell  |</span><br><span class="line">| Content Cell  | Content Cell  |</span><br></pre></td></tr></table></figure>
+<p>同时，对于表格的内容可以设置链接，加粗，斜体或者删除线等等。</p>
+<p>最后，通过在标题行使用标点符号<code>:</code>  ，可以设置对齐方式</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">| 左对齐  | 居中 | 右对齐 |</span><br><span class="line">| :------------ |:---------------:| -----:|</span><br><span class="line">| col 3 is      | some wordy text | $1600 |</span><br><span class="line">| col 2 is      | centered        |   $12 |</span><br><span class="line">| zebra stripes | are neat        |    $1 |</span><br></pre></td></tr></table></figure>
+<p>标点符号<code>:</code>在最左边表示左对齐，标点符号<code>:</code>在最右边表示右对齐，左右两边都有标点符号<code>:</code>表示居中。</p>
+<h3 id="脚注"><a href="#脚注" class="headerlink" title="脚注"></a>脚注</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">你可以用这样的方式创建一个脚注 [^脚注]。</span><br><span class="line">[<span class="symbol">^脚注</span><span class="link">]: 这是一个脚注内容。</span></span><br></pre></td></tr></table></figure>
+<p>最终产生的效果如下：</p>
+<p>你可以用这样的方式创建一个脚注 <a href="这是一个脚注。">^脚注</a>。</p>
+<p>鼠标悬浮在<code>脚注</code>两个字上时，会显示具体内容。</p>
+<h3 id="水平线"><a href="#水平线" class="headerlink" title="水平线"></a>水平线</h3><p>在一个空行中输入<code>***</code>或者 <code>---</code> ，然后点击<code>回车</code>将会生成一条水平线。</p>
+<hr>
+<h3 id="YAML-Front-Matters"><a href="#YAML-Front-Matters" class="headerlink" title="YAML Front Matters"></a>YAML Front Matters</h3><p>Typora支持 <a href="http://jekyllrb.com/docs/frontmatter/" target="_blank" rel="external">YAML Front Matters</a> 。在文章的顶部输入<code>---</code> 然后按下<code>回车</code> 键，将会创建一个。 </p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/12/16/hello-world/" itemprop="url">
+                  Hello World
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-12-16T00:00:00+08:00" content="2015-12-16">
+              2015-12-16
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
 
           
         
