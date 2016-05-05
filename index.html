@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion">
+<html class="theme-next mist use-motion">
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -95,7 +95,7 @@
 <script type="text/javascript" id="hexo.configuration">
   var NexT = window.NexT || {};
   var CONFIG = {
-    scheme: 'Muse',
+    scheme: 'Mist',
     sidebar: {"position":"left","display":"post"},
     fancybox: true,
     motion: true,
@@ -217,184 +217,6 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/05/05/Hexo+GitHub搭建个人博客/" itemprop="url">
-                  Hexo+GitHub搭建个人博客
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-05T14:26:38+08:00" content="2016-05-05">
-              2016-05-05
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/教程/" itemprop="url" rel="index">
-                    <span itemprop="name">教程</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="利用Hexo搭建个人博客（windows）"><a href="#利用Hexo搭建个人博客（windows）" class="headerlink" title="利用Hexo搭建个人博客（windows）"></a>利用Hexo搭建个人博客（windows）</h2><p>本教程采用Github + Hexo的方式搭建博客，优点是免费。大致如下</p>
-<ol>
-<li>安装<a href="http://nodejs.cn/" target="_blank" rel="external">node.js</a> 和 <a href="https://git-scm.com/download/win" target="_blank" rel="external">Git</a></li>
-<li>申请Github账号，并开启github免费blog</li>
-<li>本地搭建Hexo 的blog站点，发布到Github上</li>
-</ol>
-<p>关于node.js和git的安装，直接下载安装即可。</p>
-<p>本教程参考如下网站</p>
-<p><a href="http://www.jianshu.com/p/985d07d88ef4" target="_blank" rel="external">http://www.jianshu.com/p/985d07d88ef4</a></p>
-<p><a href="http://crazymilk.github.io/2015/12/28/GitHub-Pages-Hexo搭建博客/#more" target="_blank" rel="external">Hexo多终端同步</a></p>
-<h3 id="申请Github账号，并开启Github-Page"><a href="#申请Github账号，并开启Github-Page" class="headerlink" title="申请Github账号，并开启Github Page"></a>申请Github账号，并开启Github Page</h3><p>github账号申请：<a href="https://github.com/" target="_blank" rel="external">https://github.com/</a></p>
-<h4 id="与Github账号建立连接-git-ssh配置"><a href="#与Github账号建立连接-git-ssh配置" class="headerlink" title="与Github账号建立连接(git-ssh配置)"></a>与Github账号建立连接(<a href="https://segmentfault.com/a/1190000002645623" target="_blank" rel="external">git-ssh配置</a>)</h4><p>本教程采用git-ssh方式来建立连接，该方式配置完成后可免除输密码的麻烦。同样在Git命令行中配置</p>
-<ol>
-<li><p>设置Git的user name和email：(如果是第一次的话)</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># 注意以下命令均为单条输入</span></span><br><span class="line"></span><br><span class="line"><span class="section">### 双引号中输入Github的账户名</span></span><br><span class="line">git config --global user.name "zeyer"</span><br><span class="line"></span><br><span class="line"><span class="section">### 双引号中输入注册的email地址</span></span><br><span class="line">git config --global user.email "zeyer3@outlook.com"</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>生成密钥</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">### 双引号中输入注册的email地址</span></span><br><span class="line">ssh-keygen -t rsa -C "zeyer3@outlook.com"</span><br></pre></td></tr></table></figure>
-<p>连续3个回车，如果不需要密码的话。</p>
-<p>最后得到了两个文件：<code>id_rsa</code>和<code>id_rsa.pub</code>。</p>
-<p>如果不是第一次，就选择<code>overwrite</code></p>
-</li>
-<li><p>添加密钥到ssh-agent</p>
-<p>确保 ssh-agent 是可用的。ssh-agent是一种控制用来保存公钥身份验证所使用的私钥的程序，其实ssh-agent就是一个密钥管理器，运行ssh-agent以后，使用ssh-add将私钥交给ssh-agent保管，其他程序需要身份验证的时候可以将验证申请交给ssh-agent来完成整个认证过程。</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">### 确保ssh-agent可用</span></span><br><span class="line">eval "$(ssh-agent -s)"</span><br><span class="line"></span><br><span class="line"><span class="section">### 添加生成的SSH key 到 ssh-agent，完成后显示文件id_rsa地址</span></span><br><span class="line">ssh-add ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>登陆Github,添加ssh</p>
-<p>把<code>id_rsa.pub</code>文件里的内容添加到<code>New SSH key</code>的key中</p>
-</li>
-<li><p>测试</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
-<p>将会看到</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">The authenticity of host 'github.com (207.97.227.239)' can't be established.</span><br><span class="line">RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.</span><br><span class="line">Are you sure you want to continue connecting (yes/no)?</span><br></pre></td></tr></table></figure>
-<p>选择<code>yes</code></p>
-<p>如果看到<code>Hi</code>后面是你的用户名，就说明成功了。</p>
-</li>
-</ol>
-<ul>
-<li><p><strong>扩展补充：</strong></p>
-<p>修改<code>.git</code>文件夹下<code>config</code>中的<code>url</code>。<em>（在Hexo中是在_confiy.yml中设置，具体见下文）：</em></p>
-<p>修改前</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[remote &quot;origin&quot;]</span><br><span class="line">    url = https://github.com/zeyer/zeyer.github.io.git</span><br><span class="line">    fetch = +refs/heads/*:refs/remotes/origin/*</span><br></pre></td></tr></table></figure>
-<p>修改后(将https换成git)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[remote &quot;origin&quot;]</span><br><span class="line">    url = git@github.com:zeyer/zeyer.github.io.git</span><br><span class="line">    fetch = +refs/heads/*:refs/remotes/origin/*</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="建立Github-Page"><a href="#建立Github-Page" class="headerlink" title="建立Github Page"></a>建立Github Page</h4><h3 id="本地搭建Hexo的博客"><a href="#本地搭建Hexo的博客" class="headerlink" title="本地搭建Hexo的博客"></a>本地搭建Hexo的博客</h3><p>Node和Git都安装好之后，在本地电脑的某一位置新建文件夹，如在D盘创建blog文件夹，该文件夹主要用于存放Hexo的配置文件以及blog的内容。本教程假设文件夹名为”blog”，路径为<code>D:\blog</code>，若无特殊说明，操作均在根目录进行。</p>
-<ul>
-<li><p>右键 <code>Git Bash Here</code>  （shift+右键 <code>在此处打开命令窗口</code>，使用哪种方式取决于安装Git时选择何种方式使用Git命令行），执行如下命令安装Hexo:</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>初始化Hexo</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
-<p>​至此，Hexo安装工作就完成了，博客根目录就是blog。</p>
-</li>
-<li><p>可通过以下代码测试</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">### 生成静态网页文件</span></span><br><span class="line">hexo generate （hexo g 也可以）</span><br><span class="line"></span><br><span class="line"><span class="section">### 本地启动</span></span><br><span class="line">hexo server （hexo s）</span><br><span class="line"></span><br><span class="line"><span class="section">### 可自定义端口,如5000</span></span><br><span class="line">hexo s -p 5000</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="本地文件发布到Github上"><a href="#本地文件发布到Github上" class="headerlink" title="本地文件发布到Github上"></a>本地文件发布到Github上</h3><p>修改Hexo中的_config.yml文件</p>
-<p>找到其中的deploy标签，改成如图所示，并保存</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">## 注意有一个空格</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: git@github.com:zeyer/zeyer.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-<p>如果出现github not found错误 ，则在git 命令行中输入如下命令</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-<p>再重新运行一遍</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
     
       
 
@@ -630,6 +452,184 @@
 
 
     
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/05/05/Hexo+GitHub搭建个人博客/" itemprop="url">
+                  Hexo+GitHub搭建个人博客
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-05T14:26:38+08:00" content="2016-05-05">
+              2016-05-05
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/教程/" itemprop="url" rel="index">
+                    <span itemprop="name">教程</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="利用Hexo搭建个人博客（windows）"><a href="#利用Hexo搭建个人博客（windows）" class="headerlink" title="利用Hexo搭建个人博客（windows）"></a>利用Hexo搭建个人博客（windows）</h2><p>本教程采用Github + Hexo的方式搭建博客，优点是免费。大致如下</p>
+<ol>
+<li>安装<a href="http://nodejs.cn/" target="_blank" rel="external">node.js</a> 和 <a href="https://git-scm.com/download/win" target="_blank" rel="external">Git</a></li>
+<li>申请Github账号，并开启github免费blog</li>
+<li>本地搭建Hexo 的blog站点，发布到Github上</li>
+</ol>
+<p>关于node.js和git的安装，直接下载安装即可。</p>
+<p>本教程参考如下网站</p>
+<p><a href="http://www.jianshu.com/p/985d07d88ef4" target="_blank" rel="external">http://www.jianshu.com/p/985d07d88ef4</a></p>
+<p><a href="http://crazymilk.github.io/2015/12/28/GitHub-Pages-Hexo搭建博客/#more" target="_blank" rel="external">Hexo多终端同步</a></p>
+<h3 id="申请Github账号，并开启Github-Page"><a href="#申请Github账号，并开启Github-Page" class="headerlink" title="申请Github账号，并开启Github Page"></a>申请Github账号，并开启Github Page</h3><p>github账号申请：<a href="https://github.com/" target="_blank" rel="external">https://github.com/</a></p>
+<h4 id="与Github账号建立连接-git-ssh配置"><a href="#与Github账号建立连接-git-ssh配置" class="headerlink" title="与Github账号建立连接(git-ssh配置)"></a>与Github账号建立连接(<a href="https://segmentfault.com/a/1190000002645623" target="_blank" rel="external">git-ssh配置</a>)</h4><p>本教程采用git-ssh方式来建立连接，该方式配置完成后可免除输密码的麻烦。同样在Git命令行中配置</p>
+<ol>
+<li><p>设置Git的user name和email：(如果是第一次的话)</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># 注意以下命令均为单条输入</span></span><br><span class="line"></span><br><span class="line"><span class="section">### 双引号中输入Github的账户名</span></span><br><span class="line">git config --global user.name "zeyer"</span><br><span class="line"></span><br><span class="line"><span class="section">### 双引号中输入注册的email地址</span></span><br><span class="line">git config --global user.email "zeyer3@outlook.com"</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>生成密钥</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">### 双引号中输入注册的email地址</span></span><br><span class="line">ssh-keygen -t rsa -C "zeyer3@outlook.com"</span><br></pre></td></tr></table></figure>
+<p>连续3个回车，如果不需要密码的话。</p>
+<p>最后得到了两个文件：<code>id_rsa</code>和<code>id_rsa.pub</code>。</p>
+<p>如果不是第一次，就选择<code>overwrite</code></p>
+</li>
+<li><p>添加密钥到ssh-agent</p>
+<p>确保 ssh-agent 是可用的。ssh-agent是一种控制用来保存公钥身份验证所使用的私钥的程序，其实ssh-agent就是一个密钥管理器，运行ssh-agent以后，使用ssh-add将私钥交给ssh-agent保管，其他程序需要身份验证的时候可以将验证申请交给ssh-agent来完成整个认证过程。</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">### 确保ssh-agent可用</span></span><br><span class="line">eval "$(ssh-agent -s)"</span><br><span class="line"></span><br><span class="line"><span class="section">### 添加生成的SSH key 到 ssh-agent，完成后显示文件id_rsa地址</span></span><br><span class="line">ssh-add ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>登陆Github,添加ssh</p>
+<p>把<code>id_rsa.pub</code>文件里的内容添加到<code>New SSH key</code>的key中</p>
+</li>
+<li><p>测试</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+<p>将会看到</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">The authenticity of host 'github.com (207.97.227.239)' can't be established.</span><br><span class="line">RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.</span><br><span class="line">Are you sure you want to continue connecting (yes/no)?</span><br></pre></td></tr></table></figure>
+<p>选择<code>yes</code></p>
+<p>如果看到<code>Hi</code>后面是你的用户名，就说明成功了。</p>
+</li>
+</ol>
+<ul>
+<li><p><strong>扩展补充：</strong></p>
+<p>修改<code>.git</code>文件夹下<code>config</code>中的<code>url</code>。<em>（在Hexo中是在_confiy.yml中设置，具体见下文）：</em></p>
+<p>修改前</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[remote &quot;origin&quot;]</span><br><span class="line">    url = https://github.com/zeyer/zeyer.github.io.git</span><br><span class="line">    fetch = +refs/heads/*:refs/remotes/origin/*</span><br></pre></td></tr></table></figure>
+<p>修改后(将https换成git)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[remote &quot;origin&quot;]</span><br><span class="line">    url = git@github.com:zeyer/zeyer.github.io.git</span><br><span class="line">    fetch = +refs/heads/*:refs/remotes/origin/*</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="建立Github-Page"><a href="#建立Github-Page" class="headerlink" title="建立Github Page"></a>建立Github Page</h4><h3 id="本地搭建Hexo的博客"><a href="#本地搭建Hexo的博客" class="headerlink" title="本地搭建Hexo的博客"></a>本地搭建Hexo的博客</h3><p>Node和Git都安装好之后，在本地电脑的某一位置新建文件夹，如在D盘创建blog文件夹，该文件夹主要用于存放Hexo的配置文件以及blog的内容。本教程假设文件夹名为”blog”，路径为<code>D:\blog</code>，若无特殊说明，操作均在根目录进行。</p>
+<ul>
+<li><p>右键 <code>Git Bash Here</code>  （shift+右键 <code>在此处打开命令窗口</code>，使用哪种方式取决于安装Git时选择何种方式使用Git命令行），执行如下命令安装Hexo:</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>初始化Hexo</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
+<p>​至此，Hexo安装工作就完成了，博客根目录就是blog。</p>
+</li>
+<li><p>可通过以下代码测试</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">### 生成静态网页文件</span></span><br><span class="line">hexo generate （hexo g 也可以）</span><br><span class="line"></span><br><span class="line"><span class="section">### 本地启动</span></span><br><span class="line">hexo server （hexo s）</span><br><span class="line"></span><br><span class="line"><span class="section">### 可自定义端口,如5000</span></span><br><span class="line">hexo s -p 5000</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="本地文件发布到Github上"><a href="#本地文件发布到Github上" class="headerlink" title="本地文件发布到Github上"></a>本地文件发布到Github上</h3><p>修改Hexo中的_config.yml文件</p>
+<p>找到其中的deploy标签，改成如图所示，并保存</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">## 注意有一个空格</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: git@github.com:zeyer/zeyer.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<p>如果出现github not found错误 ，则在git 命令行中输入如下命令</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<p>再重新运行一遍</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
   </section>
 
   
@@ -739,7 +739,7 @@
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
+    NexT.Mist
   </a>
 </div>
 
