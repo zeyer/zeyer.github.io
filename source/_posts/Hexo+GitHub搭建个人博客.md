@@ -1,6 +1,7 @@
 ---
 title: Hexo+GitHub搭建个人博客
 tags: Hexo
+categories: 教程
 ---
 
 ## 利用Hexo搭建个人博客（windows）
