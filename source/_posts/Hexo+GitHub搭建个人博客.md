@@ -1,24 +1,21 @@
 ---
 title: Hexo+GitHub搭建个人博客
-tags: start
+tags: Hexo
 ---
 
 ## 利用Hexo搭建个人博客（windows）
 
-本教程采用Github + Hexo的方式搭建博客，优点是免费。大致流程如下
+本教程采用Github + Hexo的方式搭建博客，优点是免费。大致如下
 
 1. 安装[node.js](http://nodejs.cn/) 和 [Git](https://git-scm.com/download/win)
 2. 申请Github账号，并开启github免费blog
 3. 本地搭建Hexo 的blog站点，发布到Github上
-4. 部分Hexo插件推荐
 
 关于node.js和git的安装，直接下载安装即可。
 
 本教程参考如下网站
 
 http://www.jianshu.com/p/985d07d88ef4
-
-
 
 ### 申请Github账号，并开启Github Page
 
@@ -130,7 +127,7 @@ Node和Git都安装好之后，在本地电脑的某一位置新建文件夹，�
   hexo init
   ```
 
-​	至此，Hexo安装工作就完成了，博客根目录就是blog。
+  ​至此，Hexo安装工作就完成了，博客根目录就是blog。
 
 * 可通过以下代码测试
 
