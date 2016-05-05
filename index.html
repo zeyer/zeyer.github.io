@@ -741,6 +741,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: git@github.com:zeyer/zeyer.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>替换默认主题为next，并修改next主题中的<code>_config.yml</code> ,关于<a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">next主题</a></p>
+<p><em>若使用的为第三方主题，此步骤一定不可省，因为第三方主题clone容易出现问题</em></p>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>依次执行git add, commit, push 等命令，提交网站相关命令</p>
@@ -771,7 +772,12 @@
 <li><p>然后才执行hexo generate -d发布网站到master分支上。</p>
 </li>
 </ol>
-<h3 id="四、"><a href="#四、" class="headerlink" title="四、"></a>四、</h3>
+<h3 id="四、几点注意："><a href="#四、几点注意：" class="headerlink" title="四、几点注意："></a>四、几点注意：</h3><ul>
+<li>若一切从无到有，在建本地博客是需要hexo init , 若本地数据丢失，只是从远程拷贝数据，则无需使用hexo init。</li>
+<li>使用第三方主题，最好重新下载，git clone会有问题</li>
+<li>每次更新博客时，新提交源文件，git add 等操作，再使用部署命令 hexo g -d</li>
+</ul>
+
           
         
       
