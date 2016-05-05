@@ -630,6 +630,159 @@
 
 
     
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/05/02/2016-05-02--Hexo-博客多终端同步/" itemprop="url">
+                  Hexo 博客多终端同步
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-02T00:00:00+08:00" content="2016-05-02">
+              2016-05-02
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/教程/" itemprop="url" rel="index">
+                    <span itemprop="name">教程</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="教程说明"><a href="#教程说明" class="headerlink" title="教程说明"></a>教程说明</h2><p>本教程利用Github上的分支来实现Hexo博客在多个终端同步。教程主要针对两种情况进行说明：</p>
+<ol>
+<li>在博客搭建时，已创建两个分支，一个是默认分支master，另一个是hexo分支，用于同步markdown等源文件。</li>
+<li>博客已搭建完成，但只有默认分支master，无源文件备份分支。但有本地博客文件夹。</li>
+</ol>
+<p>注意：本教程要求本地已经安装Node和Git。</p>
+<h4 id="一、博客搭建时"><a href="#一、博客搭建时" class="headerlink" title="一、博客搭建时"></a>一、博客搭建时</h4><ol>
+<li><p>在Github中创建远程仓库，zeyer.github.io;</p>
+</li>
+<li><p>创建两个分支： master 和 hexo;</p>
+</li>
+<li><p>设置hexo为默认分支，具体操作如下：</p>
+<p> ①点击项目设置<code>Settings</code>  </p>
+<p><img src="http://o6oq2pwnx.bkt.clouddn.com/20160505140710.jpg" alt="20160505140710"></p>
+<p>②点击<code>Branches &gt; Default branch</code> ，选择 <code>hexo</code> 为默认branch即可。</p>
+<p><img src="http://o6oq2pwnx.bkt.clouddn.com/20160505141333.jpg" alt="20160505141333"></p>
+</li>
+<li><p>使用git clone命令将远程的仓库拷贝到本地</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">### 将远程仓库拷贝到本地blog文件夹，该命令会自动创建blog文件夹</span></span><br><span class="line">git clone git@github.com:zeyer/zeyer.github.io.git blog</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>定位到本地<strong>blog文件夹</strong>，通过Git Bash命令依次执行</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">### 安装hexo</span></span><br><span class="line">npm install hexo</span><br><span class="line"></span><br><span class="line"><span class="section">### hexo初始化(只有在新建博客的时候才需要hexo init命令)</span></span><br><span class="line"><span class="section">### 若远程仓库已有博客数据，是同步到其他终端时，无需hexo init 命令</span></span><br><span class="line">hexo init</span><br><span class="line"></span><br><span class="line"><span class="section">### npm安装</span></span><br><span class="line">npm install</span><br><span class="line"></span><br><span class="line"><span class="section">### 安装hexo git</span></span><br><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改<code>_config.yml</code> 中的deploy参数，分支应为master</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: git@github.com:zeyer/zeyer.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>替换默认主题为next，并修改next主题中的<code>_config.yml</code> ,关于<a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">next主题</a></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>依次执行git add, commit, push 等命令，提交网站相关命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line"></span><br><span class="line">git commit -m &quot;...&quot;</span><br><span class="line"></span><br><span class="line">git push origin hexo</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>hexo部署到Github中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line"></span><br><span class="line">hexo generate</span><br><span class="line"></span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
+<p>这样一来，在GitHub上的zeyer.github.io仓库就有两个分支，一个hexo分支用来存放网站的原始文件，一个master分支用来存放生成的静态网页。</p>
+</li>
+</ol>
+<h4 id="二、本地博客搭建完成，远程只有默认分支master"><a href="#二、本地博客搭建完成，远程只有默认分支master" class="headerlink" title="二、本地博客搭建完成，远程只有默认分支master"></a>二、本地博客搭建完成，远程只有默认分支master</h4><ol>
+<li><p>定位到本地文件夹blog下，用Git Bash新建分支</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
   </section>
 
   
@@ -671,7 +824,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
