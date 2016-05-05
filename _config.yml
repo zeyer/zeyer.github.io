@@ -3,11 +3,11 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: zeyer
 subtitle:
 description:
-author: John Doe
-language:
+author: zeyer
+language: zh-Hans
 timezone:
 
 # URL
@@ -60,12 +60,29 @@ time_format: HH:mm:ss
 per_page: 10
 pagination_dir: page
 
+#配置每页显示多少
+index_generator:
+  per_page: 5
+
+archive_generator:
+  per_page: 20
+  yearly: true
+  monthly: true
+
+tag_generator:
+  per_page: 10
+
+
 # Extensions
 ## Plugins: http://hexo.io/plugins/
 ## Themes: http://hexo.io/themes/
-theme: landscape
+plugins:
+ - hexo-math
+theme: next
 
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
-  type:
+  type: git
+  repository: git@github.com:zeyer/zeyer.github.io.git
+  branch: master
