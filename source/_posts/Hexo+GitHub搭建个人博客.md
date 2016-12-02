@@ -25,7 +25,7 @@ Node官网：http://nodejs.cn/
 
 Git官网：https://git-scm.com/download/win
 
-### 二、申请Github账号，创建GitHub Pages 仓库
+### 二、申请Github账号，创建GitHub  Pages 仓库
 
 #### 1. Github账号申请（官网）：
 
